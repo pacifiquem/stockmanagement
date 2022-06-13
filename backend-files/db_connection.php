@@ -15,14 +15,12 @@
 
         public function connection() {
             $this->conn = new mysqli($this->host, $this->user, $this->password,$this->database);
-            if($this->conn) {
-                 echo 'you are connected to database';
-            }else {
-               exit(-1);
+            if(!$this->conn) {
+                exit('You have a problem with database');
             }
         }
     }
 
     $conn = new Db_Connection('localhost', 'root', 'P@12p98p', 'stockmanagementsystem');
-    $conn->connection();
+    $dbConnection = $conn->connection();
 ?>
