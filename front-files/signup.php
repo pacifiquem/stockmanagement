@@ -16,11 +16,11 @@
 
         </div>
         <div class="right w-2/3 p-4 flex items-center justify-between outline-none bg-white rounded-l-2xl  ">
-            <form action="" method="" class="w-[370px]  mx-auto">
-                <h1 class="text-xl font-bold ">Create an account in   <span class=" font-bold text-blue-500">MyStock &trade;</span></h1>
-                <p class="text-gray-400 text-sm mb-4">Fill in all fields provided below to start using our stock managemt system</p>
-                <hr class="py-2">
+            <form action="../backend-files/user_crud.php" method="POST" class="w-[370px]  mx-auto">
+                <h1 class="text-xl font-bold mb-3">Create an account in   <span class=" font-bold text-blue-500">MyStock &trade;</span></h1>
+                <p class="text-gray-400 text-red-600 text-md mb-4 inline ml-6"><?php if(!empty($_GET['error'])){ echo $_GET['error'];}?></p>
 
+                <hr class="py-2 mt-5">
                 <input  type="text" class="border-b p-2 w-1/2 outline-none duration-200 hover:border-b-blue-500" placeholder="Your lastname" name="lastname" autocomplete="off">
                 <input type="text" class="border-b p-2 w-1/2 float-right duration-200 hover:border-b-blue-500" placeholder="Your firstname" name="firstname" autocomplete="off">
                 <input type="text" class="border-b p-2 w-full duration-200 hover:border-b-blue-500" placeholder="Your telephone" name="telephone" autocomplete="off">
