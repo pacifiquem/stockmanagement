@@ -16,7 +16,7 @@
 
         </div>
         <div class="right w-2/3 p-4 flex items-center justify-between outline-none bg-white rounded-l-2xl  ">
-            <form action="../backend-files/user_crud.php" method="POST" class="w-[370px]  mx-auto">
+            <form action="../backend-files/user_crud.php?signup=TRUE" method="POST" class="w-[370px]  mx-auto">
                 <h1 class="text-xl font-bold mb-3">Create an account in   <span class=" font-bold text-blue-500">MyStock &trade;</span></h1>
                 <p class="text-gray-400 text-red-600 text-md mb-4 inline ml-6"><?php if(!empty($_GET['error'])){ echo $_GET['error'];}?></p>
 
@@ -28,7 +28,7 @@
                 <input type="text" class="border-b p-2 w-full duration-200 hover:border-b-blue-500" placeholder="Your nationality" name="nationality" autocomplete="off">
                 <input type="text" class="border-b p-2 w-full duration-200 hover:border-b-blue-500" placeholder="Your username " name="username" autocomplete="off">
                 <input type="emal" class="border-b p-2 w-full duration-200 hover:border-b-blue-500" placeholder="Your email address" name="email" autocomplete="off">
-                <input type="password" class="border-b p-2 w-full duration-200 hover:border-b-blue-500" placeholder="Your password" name="email">   
+                <input type="password" class="border-b p-2 w-full duration-200 hover:border-b-blue-500" placeholder="Your password" name="password">   
                 <input type="submit" class="border-b p-2 w-full mt-4  bg-blue-500  font-bold text-white cursor-pointer rounded-md   " value="Create account                      ">
                 <p class="text-sm text-gray-500 text-center mt-2">Already have an account ?  <a href="./login.php" class="text-blue-500 font-bold hover:underline">Login</a></p>
             </form>  
