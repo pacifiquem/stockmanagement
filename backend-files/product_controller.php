@@ -38,6 +38,13 @@ class Product {
         }
     }
 
+    public function deleteProduct() {
+        $delete = "DELETE FROM products WHERE productId='$this->productId'";
+        $query = mysqli_query($this->connection ,$delete);
+        if($query) {
+            header("Location: ../front-files/dashboard.php?message=Product deleted successfully");
+        }
+    }
 
 }
 
@@ -47,6 +54,12 @@ if(isset($_GET['addproduct']) && ($_GET['addproduct'] == TRUE)){
     $newProduct-> setAddandUpdateProductInfo($_GET['productId'], $_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier']);
     $newProduct->generateId();
     $newProduct->addProduct();
+}
+
+if(isset($_GET['addproduct']) && ($_GET['addproduct'] == TRUE)){
+    $deleteProduct = new Product();
+    $deleteProduct-> setDeleteProductInfo($_GET['productId'], $_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier']);
+    $deleteProduct->deleteProduct();
 }
 
 ?>
