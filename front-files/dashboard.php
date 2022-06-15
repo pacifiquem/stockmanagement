@@ -9,10 +9,11 @@
 </head>
 <body>
     <div class="container">
-        <?php
-            session_start();
-            echo $_SESSION['user'];
-        ?>
+    <?php
+        if(isset($_GET['message'])) {
+            echo $_GET['message'];
+        }
+    ?>
     </div>
 </body>
 </html>
