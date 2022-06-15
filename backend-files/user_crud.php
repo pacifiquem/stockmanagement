@@ -39,6 +39,11 @@ class User {
 
     }
 
+    public function setdeleteUser_info($userId, $connection) {
+        $this->userId = $userId;
+        $this->connection = $connection;
+    }
+
     public function hashPassword() {
 
         $this->password = hash('sha256', $this->password);
@@ -50,6 +55,7 @@ class User {
         echo $this->userId;
     }
 
+    //signUp method
     public function signUp() {
         $insert = "INSERT INTO users(userId, firstName, lastName, telephone, gender, nationality, username, email, password) values('$this->userId', '$this->firstName', '$this->lastName', '$this->telephone', '$this->gender', '$this->nationality', '$this->username', '$this->email', '$this->password')";
 
@@ -68,6 +74,7 @@ class User {
     }
 
 
+    //login method
     public function logIn() {
 
         $select = "SELECT * FROM USERS where email='$this->email'";
@@ -87,6 +94,17 @@ class User {
 
                 header("Location: ../front-files/dashboard.php");
             }
+        }
+    }
+
+    //delete user method
+    public function deleteUser() {
+
+        $delete = "DELETE FROM users WHERE userId='$this->userId'";
+        $query = mysqli_query($this->connection, $delete);
+
+        if($query){
+            header('Location: ../front-files/dashboard.php?message=User was Deleted Successfully.');
         }
     }
 }
@@ -110,6 +128,14 @@ if(isset($_GET['login']) && $_GET['login'] == TRUE) {
     $userLoggedIn = new User();
     $userLoggedIn->setLogIn_info($_POST['email'], $_POST['password'], $dbConnection);
     $userLoggedIn-> logIn();
+
+}
+
+if(isset($_GET['delete']) && $_GET['delete'] == TRUE) {
+
+    $deleteUser = new User();
+    $deleteUser->setdeleteUser_info($_GET['userId'] ,$dbConnection);
+    $deleteUser->deleteUser();
 
 }
 
