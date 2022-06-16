@@ -43,6 +43,8 @@ class Product {
         $query = mysqli_query($this->connection ,$delete);
         if($query) {
             header("Location: ../front-files/dashboard.php?message=Product deleted successfully");
+        }else {
+            header("Location: ../front-files/dashboard.php?message=Unable to delete product");
         }
     }
 
@@ -56,9 +58,9 @@ if(isset($_GET['addproduct']) && ($_GET['addproduct'] == TRUE)){
     $newProduct->addProduct();
 }
 
-if(isset($_GET['addproduct']) && ($_GET['addproduct'] == TRUE)){
+if(isset($_GET['deleteProduct']) && ($_GET['deleteProduct'] == TRUE)){
     $deleteProduct = new Product();
-    $deleteProduct-> setDeleteProductInfo($_GET['productId'], $_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier']);
+    $deleteProduct-> setDeleteProductInfo($_GET['productId'], $dbConnection);
     $deleteProduct->deleteProduct();
 }
 
