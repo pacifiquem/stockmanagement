@@ -23,7 +23,7 @@
         }
 
         public function generateId() {
-            $this->productId = uniqid();
+            $this->inventoryId = uniqid();
         }
 
         public function addInventory() {
