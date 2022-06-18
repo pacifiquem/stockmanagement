@@ -16,18 +16,18 @@
 
         </div>
         <div class="right w-2/3 p-4 flex items-center justify-between outline-none bg-white rounded-l-2xl">
-            <form action="" method="" class="w-[370px]  mx-auto">
+            <form action="../backend-files/user_crud.php?login=TRUE" method="POST" class="w-[370px]  mx-auto">
                 <h1 class="text-xl font-bold ">Welcome back to <span class=" font-bold text-blue-500">MyStock &trade;</span></h1>
-                <p class="text-gray-400 text-sm mb-4">Fill in the provided fields with your credentials</p>
+                <p class="text-gray-400 text-red-600 text-md mb-4 inline ml-6"><?php if(!empty($_GET['error'])){ echo $_GET['error'];}?></p>
                 <hr class="py-2">
 
 
-                <input type="text" class="border-b p-2 w-full duration-200 hover:border-b-blue-500  " placeholder="Your username" name="username" autocomplete="off"> 
+                <input type="text" class="border-b p-2 w-full duration-200 hover:border-b-blue-500  " placeholder="Your email" name="email" autocomplete="off"> 
                 <input type="password" class="border-b p-2 w-full   duration-200 hover:border-b-blue-500 " placeholder="Your password" name="password">  
                 <input type="submit" class="border-b p-2 w-full mt-4  bg-blue-500  font-bold text-white cursor-pointer rounded-md   " value="Log in                      ">
 
                 <p class="text-sm text-gray-500 text-center mt-2">Don't have an account ?  <a href="./signup.php" class="text-blue-500 font-bold hover:underline">Create one</a></p>
-            </form>  
+            </form>
         </div>
     </div>
 
