@@ -29,6 +29,16 @@ class Product {
         $this->productId = uniqid();
     }
 
+    public function getAllProducts() {
+        $select = "SELECT * FROM products";
+        $query = mysqli_query($this->connection, $select);
+        
+        if($query && ($query->num_rows > 0)) {
+            $rows = mysqli_fetch_assoc($query);
+            return $rows;
+        }
+    }
+
     public function addProduct() {
         $insert = "INSERT INTO product(productId, product_Name, brand, supplier_phone, supplier, added_date) VALUES('$this->productId', '$this->product_Name', '$this->brand', '$this->supplier_phone', '$this->supplier')";
 
