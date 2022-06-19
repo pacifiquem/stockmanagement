@@ -24,7 +24,7 @@
 
                 <input type="text" class="border-b p-2 w-full duration-200 hover:border-b-blue-500  " placeholder="Your email" name="email" autocomplete="off"> 
                 <input type="password" class="border-b p-2 w-full   duration-200 hover:border-b-blue-500 " placeholder="Your password" name="password">  
-                <input type="submit" class="border-b p-2 w-full mt-4  bg-blue-500  font-bold text-white cursor-pointer rounded-md   " value="Log in                      ">
+                <input type="submit" class="border-b p-2 w-full mt-4  bg-blue-500  font-bold text-white cursor-pointer hover:bg-blue-800 duration-100  " value="Log in                      ">
 
                 <p class="text-sm text-gray-500 text-center mt-2">Don't have an account ?  <a href="./signup.php" class="text-blue-500 font-bold hover:underline">Create one</a></p>
             </form>
