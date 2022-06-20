@@ -1,8 +1,5 @@
 <?php
 
-include('./db_connection.php');
-echo "run";
-
 class Product {
 
     private $productId;
@@ -13,17 +10,20 @@ class Product {
     private $added_date;
     private $connection;
 
-    public function setAddandUpdateProductInfo($product_Name, $brand, $supplier_phone, $supplier, $connection) {
+    function __construct()
+    {
+        $this->connection = new mysqli('localhost', 'root', 'P@12p98p', 'stockmanagementsystem');
+    }
+
+    public function setAddandUpdateProductInfo($product_Name, $brand, $supplier_phone, $supplier) {
         $this->product_Name = $product_Name;
         $this->brand = $brand;
         $this->supplier_phone = $supplier_phone;
         $this->supplier = $supplier;
-        $this->connection = $connection;
     }
 
-    public function setDeleteProductInfo($productId, $connection) {
+    public function setDeleteProductInfo($productId) {
         $this->productId = $productId;
-        $this->connection = $connection;
     }
 
     public function generateId() {
@@ -31,12 +31,14 @@ class Product {
     }
 
     public function getAllProducts() {
-        $select = "SELECT * FROM products";
+
+        $select = "select * from products";
         $query = mysqli_query($this->connection, $select);
         
         if($query && ($query->num_rows > 0)) {
-            $rows = mysqli_fetch_assoc($query);
-            return $rows;
+            return $query;
+        }else {
+            return 'no products in stock';
         }
     }
 
@@ -69,14 +71,14 @@ class Product {
 if(isset($_GET['addproduct']) && ($_GET['addproduct'] == TRUE)){
 
     $newProduct = new Product();
-    $newProduct-> setAddandUpdateProductInfo($_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier'], $dbConnection);
+    $newProduct-> setAddandUpdateProductInfo($_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier']);
     $newProduct->generateId();
     $newProduct->addProduct();
 }
 
 if(isset($_GET['deleteProduct']) && ($_GET['deleteProduct'] == TRUE)){
     $deleteProduct = new Product();
-    $deleteProduct-> setDeleteProductInfo($_GET['productId'], $dbConnection);
+    $deleteProduct-> setDeleteProductInfo($_GET['productId']);
     $deleteProduct->deleteProduct();
 }
 
