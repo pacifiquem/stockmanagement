@@ -1,6 +1,7 @@
 <?php
 
 include('./db_connection.php');
+echo "run";
 
 class Product {
 
@@ -12,12 +13,12 @@ class Product {
     private $added_date;
     private $connection;
 
-    public function setAddandUpdateProductInfo($productId, $product_Name, $brand, $supplier_phone, $supplier) {
-        $this->productId = $productId;
+    public function setAddandUpdateProductInfo($product_Name, $brand, $supplier_phone, $supplier, $connection) {
         $this->product_Name = $product_Name;
         $this->brand = $brand;
         $this->supplier_phone = $supplier_phone;
         $this->supplier = $supplier;
+        $this->connection = $connection;
     }
 
     public function setDeleteProductInfo($productId, $connection) {
@@ -40,11 +41,14 @@ class Product {
     }
 
     public function addProduct() {
-        $insert = "INSERT INTO product(productId, product_Name, brand, supplier_phone, supplier, added_date) VALUES('$this->productId', '$this->product_Name', '$this->brand', '$this->supplier_phone', '$this->supplier')";
+        $insert = "INSERT INTO products(productId, product_Name, brand, supplier_phone, supplier) VALUES('$this->productId', '$this->product_Name', '$this->brand', '$this->supplier_phone', '$this->supplier')";
 
         $query = mysqli_query($this->connection, $insert);
+        
         if($query) {
-            "Location: ../front-files/dashboard.php?message=New product added.";
+            header("Location: ../front-files/products-view.php?message=New product added.");
+        }else {
+            echo "<script>console.log(mysqli_error($this->connection))</script>";
         }
     }
 
@@ -52,9 +56,10 @@ class Product {
         $delete = "DELETE FROM products WHERE productId='$this->productId'";
         $query = mysqli_query($this->connection ,$delete);
         if($query) {
-            header("Location: ../front-files/dashboard.php?message=Product deleted successfully");
+            header("Location: ../front-files/products-view.php?message=Product deleted successfully");
         }else {
-            header("Location: ../front-files/dashboard.php?message=Unable to delete product");
+            echo "<script>console.log(mysqli_error($this->connection))</script>";
+            header("Location: ../front-files/products-view.php?message=Unable to delete product");
         }
     }
 
@@ -62,8 +67,9 @@ class Product {
 
 
 if(isset($_GET['addproduct']) && ($_GET['addproduct'] == TRUE)){
+
     $newProduct = new Product();
-    $newProduct-> setAddandUpdateProductInfo($_GET['productId'], $_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier']);
+    $newProduct-> setAddandUpdateProductInfo($_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier'], $dbConnection);
     $newProduct->generateId();
     $newProduct->addProduct();
 }

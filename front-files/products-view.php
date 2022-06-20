@@ -27,7 +27,7 @@
                     <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">outgoing</a></li>
                     <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">Inventory </a></li>
                 </ul>
-                <button class="px-10 py-2  bg-white text-blue-500 rounded-full absolute bottom-2 ">Logout </button>
+                <button class="px-10 py-2  bg-white text-blue-500 rounded-full absolute bottom-2">Logout </button>
             </div>
 
         </div>
@@ -134,7 +134,7 @@
                             <td class=" py-2   text-center text-gray-600">Supplier phone</td>
                             <td class=" py-2 text-center text-gray-600">Supplier</td>
                             <td class=" py-2  text-center text-gray-600">Added date</td>
-                            <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
+                            <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="../backend-files/product_controller.php?productId=62b0153301b91&deleteProduct=TRUE" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
                         </tr>
 
             </div>
