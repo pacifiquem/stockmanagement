@@ -10,6 +10,12 @@
 
     <title>thestock | Dashboard</title>
 </head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+    body{
+        font-family: 'nunito';
+    }
+</style>
 
 <body>
     <div class="container grid grid-cols-6 grid-rows-6  h-screen w-screen">
@@ -22,8 +28,8 @@
             <h1 class="px-2 text-xl text-white font-extrabold">MyStock&trade;</h1>
             <div class="links ">
                 <ul class="flex flex-col gap-4 px-2 mt-[12vh]">
-                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">Products</a></li>
-                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">Users</a></li>
+                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="./products-view.php" class="font-semibold text-white">Products</a></li>
+                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="./users-view.php" class="font-semibold text-white">Users</a></li>
                     <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">outgoing</a></li>
                     <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">Inventory </a></li>
                 </ul>
