@@ -11,8 +11,9 @@
     <title>thestock | Dashboard</title>
 </head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
-    body{
+    @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+    body {
         font-family: 'nunito';
     }
 </style>
@@ -48,9 +49,9 @@
         </div>
         <div class="main  col-start-2 col-end-7  row-end-7 row-start-2 h-full p-2">
             <div class="search flex items-center justify-between px-10 mb-10">
-                <h1 class= "text-xl font-bold underline "> All products</h1>
+                <h1 class="text-xl font-bold underline "> Inventory</h1>
                 <form action="" class=" w-fit"><input type="text" placeholder="Search product..." class="border-b-2 border-black py-2 w-[300px]"><button type="submit" class="py-2 px-4 border-b-2 border-black">Search</button></form>
-                <a href="./addproduct.php" class="py-2 px-4 bg-blue-200 ">Add new product</a>
+                <a href="./addproduct.php" class="py-2 px-4 bg-blue-200 ">Add inventory</a>
             </div>
             <div class="products_list mt-4">
                 <table class="w-full">
@@ -59,93 +60,43 @@
                     <thead class="">
                         <tr class="mb-10    ">
 
+                            <th class="text-gray-600 py-4">Inventory Id</th>
+                            <th class="text-gray-600 py-4">quantity</li>
                             <th class="text-gray-600 py-4">Product Id</th>
-                            <th class="text-gray-600 py-4">Product name</li>
-                            <th class="text-gray-600 py-4">Brand</th>
-                            <th class="text-gray-600 py-4">Supplier phone</li>
-                            <th class="text-gray-600 py-4">Supplier</th>
-                            <th class="text-gray-600 py-4">Added date</th>
                             <th class="text-gray-600 py-4">Actions</th>
                         </tr>
-                    </thead >
+                    </thead>
                     <tbody>
 
                         <tr class="mb-2">
                             <td class=" py-2 text-center text-gray-600">Product Id</td>
                             <td class=" py-2  text-center text-gray-600">Product name</td>
                             <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
                             <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
                         </tr>
                         <tr class="mb-2">
                             <td class=" py-2 text-center text-gray-600">Product Id</td>
                             <td class=" py-2  text-center text-gray-600">Product name</td>
                             <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
                             <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
                         </tr>
                         <tr class="mb-2">
                             <td class=" py-2 text-center text-gray-600">Product Id</td>
                             <td class=" py-2  text-center text-gray-600">Product name</td>
                             <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
                             <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
                         </tr>
                         <tr class="mb-2">
                             <td class=" py-2 text-center text-gray-600">Product Id</td>
                             <td class=" py-2  text-center text-gray-600">Product name</td>
                             <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
-                            <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
-                        </tr>
-                        <tr class="mb-2">
-                            <td class=" py-2 text-center text-gray-600">Product Id</td>
-                            <td class=" py-2  text-center text-gray-600">Product name</td>
-                            <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
-                            <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
-                        </tr>
-                        <tr class="mb-2">
-                            <td class=" py-2 text-center text-gray-600">Product Id</td>
-                            <td class=" py-2  text-center text-gray-600">Product name</td>
-                            <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
-                            <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
-                        </tr>
-                        <tr class="mb-2">
-                            <td class=" py-2 text-center text-gray-600">Product Id</td>
-                            <td class=" py-2  text-center text-gray-600">Product name</td>
-                            <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
-                            <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
-                        </tr>
-                        <tr class="mb-2">
-                            <td class=" py-2 text-center text-gray-600">Product Id</td>
-                            <td class=" py-2  text-center text-gray-600">Product name</td>
-                            <td class=" py-2  text-center text-gray-600">Brand</li>
-                            <td class=" py-2   text-center text-gray-600">Supplier phone</td>
-                            <td class=" py-2 text-center text-gray-600">Supplier</td>
-                            <td class=" py-2  text-center text-gray-600">Added date</td>
                             <td class=" py-2 text-center text-gray-600 flex gap-2 justify-around"><a href="" class="px-2 py-1 bg-green-100 text-green-700">Update</a><a href="" class="px-2 py-1 bg-red-100 text-red-700">Delete</a></td>
                         </tr>
 
+
+                    </tbody>
+                </table>
             </div>
-            </tbody>
-            </table>
         </div>
 
     </div>

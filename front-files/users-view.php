@@ -29,8 +29,8 @@
                 <ul class="flex flex-col gap-4 px-2 mt-[12vh]">
                     <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="./products-view.php" class="font-semibold text-white">Products</a></li>
                     <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="./users-view.php" class="font-semibold text-white">Users</a></li>
-                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">outgoing</a></li>
-                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="" class="font-semibold text-white">Inventory </a></li>
+                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="./inventory-view.php" class="font-semibold text-white">outgoing</a></li>
+                    <li class="flex items-center gap-2"><img src="" alt="" class="w-4  h-4"><a href="./outgoing-view.php" class="font-semibold text-white">Inventory </a></li>
                 </ul>
                 <button class="px-10 py-2  bg-white text-blue-500 rounded-full absolute bottom-2 ">Logout </button>
             </div>
