@@ -1,7 +1,5 @@
 <?php
 
-include('./db_connection.php');
-
 class Product {
 
     private $productId;
@@ -12,17 +10,20 @@ class Product {
     private $added_date;
     private $connection;
 
-    public function setAddandUpdateProductInfo($productId, $product_Name, $brand, $supplier_phone, $supplier) {
-        $this->productId = $productId;
+    function __construct()
+    {
+        $this->connection = new mysqli('localhost', 'root', 'P@12p98p', 'stockmanagementsystem');
+    }
+
+    public function setAddandUpdateProductInfo($product_Name, $brand, $supplier_phone, $supplier) {
         $this->product_Name = $product_Name;
         $this->brand = $brand;
         $this->supplier_phone = $supplier_phone;
         $this->supplier = $supplier;
     }
 
-    public function setDeleteProductInfo($productId, $connection) {
+    public function setDeleteProductInfo($productId) {
         $this->productId = $productId;
-        $this->connection = $connection;
     }
 
     public function generateId() {
@@ -30,21 +31,26 @@ class Product {
     }
 
     public function getAllProducts() {
-        $select = "SELECT * FROM products";
+
+        $select = "select * from products";
         $query = mysqli_query($this->connection, $select);
         
         if($query && ($query->num_rows > 0)) {
-            $rows = mysqli_fetch_assoc($query);
-            return $rows;
+            return $query;
+        }else {
+            return 'no products in stock';
         }
     }
 
     public function addProduct() {
-        $insert = "INSERT INTO product(productId, product_Name, brand, supplier_phone, supplier, added_date) VALUES('$this->productId', '$this->product_Name', '$this->brand', '$this->supplier_phone', '$this->supplier')";
+        $insert = "INSERT INTO products(productId, product_Name, brand, supplier_phone, supplier) VALUES('$this->productId', '$this->product_Name', '$this->brand', '$this->supplier_phone', '$this->supplier')";
 
         $query = mysqli_query($this->connection, $insert);
+        
         if($query) {
-            "Location: ../front-files/dashboard.php?message=New product added.";
+            header("Location: ../front-files/products-view.php?message=New product added.");
+        }else {
+            echo "<script>console.log(mysqli_error($this->connection))</script>";
         }
     }
 
@@ -52,9 +58,10 @@ class Product {
         $delete = "DELETE FROM products WHERE productId='$this->productId'";
         $query = mysqli_query($this->connection ,$delete);
         if($query) {
-            header("Location: ../front-files/dashboard.php?message=Product deleted successfully");
+            header("Location: ../front-files/products-view.php?message=Product deleted successfully");
         }else {
-            header("Location: ../front-files/dashboard.php?message=Unable to delete product");
+            echo "<script>console.log(mysqli_error($this->connection))</script>";
+            header("Location: ../front-files/products-view.php?message=Unable to delete product");
         }
     }
 
@@ -62,15 +69,16 @@ class Product {
 
 
 if(isset($_GET['addproduct']) && ($_GET['addproduct'] == TRUE)){
+
     $newProduct = new Product();
-    $newProduct-> setAddandUpdateProductInfo($_GET['productId'], $_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier']);
+    $newProduct-> setAddandUpdateProductInfo($_GET['product_Name'], $_GET['brand'], $_GET['supplier_phone'], $_GET['supplier']);
     $newProduct->generateId();
     $newProduct->addProduct();
 }
 
 if(isset($_GET['deleteProduct']) && ($_GET['deleteProduct'] == TRUE)){
     $deleteProduct = new Product();
-    $deleteProduct-> setDeleteProductInfo($_GET['productId'], $dbConnection);
+    $deleteProduct-> setDeleteProductInfo($_GET['productId']);
     $deleteProduct->deleteProduct();
 }
 

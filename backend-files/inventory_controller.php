@@ -45,6 +45,7 @@
             if($query) {
                 header("Location ../front-files/dashboard.php?message=Inventory ($this->inventoryId) Deleted Successfully");
             }else {
+                echo "<script>console.log(mysqli_error($this->connection))</script>";
                 header("Location ../front-files/dashboard.php?message=Unable to delete Inventory with id ($this->inventoryId);");
             }
         }
